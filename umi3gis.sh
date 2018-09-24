@@ -11,7 +11,8 @@ libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev lib
 libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
 autoconf xutils-dev dh-autoreconf ubuntu-drivers-common mesa-utils mesa-utils-extra compton \
 xorg xserver-xorg xserver-xorg-input-all libxcb-xrm-dev network-manager dmenu pulseaudio \
-lxterminal firefox feh
+terminator firefox feh dunst network-manager-gnome arandr software-properties-common i3lock \
+imagemagick scrot libnotify-bin acpi
 
 echo "========== INSTALLING I3Blocks =========="
 git clone https://github.com/Airblader/i3blocks-gaps i3blocks
