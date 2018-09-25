@@ -26,11 +26,6 @@ else
   echo
 fi
 
-echo
-echo "+++++ Enabling NetworkManager +++++"
-sudo systemctl enable NetworkManager
-echo
-
 echo "========== INSTALLING I3Blocks =========="
 git clone https://github.com/Airblader/i3blocks-gaps i3blocks
 cd i3blocks
@@ -61,11 +56,16 @@ read answer
 
 if [ $answer = 'y' ]; then
   git clone https://github.com/MichalPolach/dotfiles
-  mv dotfiles/* ./
-  rm -rf dotfiles
+  mv dotfiles/.[!.]* ./
+  rm -rf dotfiles i3blocks umi3gis.sh i3-gaps
 else
   echo "Unacceptable!"
 fi
+
+echo
+echo "+++++ Enabling NetworkManager +++++"
+sudo systemctl enable NetworkManager
+echo
 
 echo "========== INSTALLATION COMPLETE! =========="
 echo
