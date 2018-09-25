@@ -18,10 +18,9 @@ read answer
 
 if [ $answer = 'y' ]; then
   echo "========== INSTALLING OPTIONAL SOFTWARE =========="
-  sudo apt install -y ranger keepass2 xdotool fonts-font-awesome fonts-noto terminator \
-  imagemagick scrot lxappearance acpi firefox feh dunst network-manager-gnome arandr \
-  software-properties-common i3lock libnotify-bin
-  
+  sudo apt install -y lxappearance ranger keepass2 xdotool fonts-font-awesome fonts-noto terminator \
+  imagemagick scrot acpi firefox feh dunst network-manager-gnome arandr software-properties-common \
+  i3lock libnotify-bin
 else
   echo "CONTINUING..."
   echo
@@ -54,4 +53,30 @@ sudo make install
 cd
 echo "exec i3" > .xinitrc
 
+echo
+echo ++++++++++ UARS ++++++++++
+echo "Do you want to setup an awesome i3-gaps setup?!"
+echo  -n "(y/n): "
+read answer
+
+if [ $answer = 'y' ]; then
+  git clone https://github.com/MichalPolach/dotfiles
+  mv dotfiles/* ./
+  rm -rf dotfiles
+else
+  echo "Unacceptable!"
+fi
+
 echo "========== INSTALLATION COMPLETE! =========="
+echo
+echo "You should now reboot or logout in order to use your newly configured system."
+echo -n "Reboot(r) or Logout(l)?: "
+read answer
+
+if [ $answer = 'r' ]; then
+  sudo shutdown -r now
+elif [ $answer = 'l' ]; then
+  logout
+else
+  echo "no action selected, you can continue to make further changes... or whatever."
+fi
