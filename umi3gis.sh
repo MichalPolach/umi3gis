@@ -11,8 +11,26 @@ libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev lib
 libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
 autoconf xutils-dev dh-autoreconf ubuntu-drivers-common mesa-utils mesa-utils-extra compton \
 xorg xserver-xorg xserver-xorg-input-all libxcb-xrm-dev network-manager dmenu pulseaudio \
-terminator firefox feh dunst network-manager-gnome arandr software-properties-common i3lock \
-imagemagick scrot libnotify-bin acpi
+
+echo "+++++++++ Optional Programs +++++++++"
+echo -n "Install optional software? (y/n): "
+read answer
+
+if [ $answer = 'y' ]; then
+  echo "========== INSTALLING OPTIONAL SOFTWARE =========="
+  sudo apt install -y ranger keepass2 xdotool fonts-font-awesome fonts-noto terminator \
+  imagemagick scrot lxappearance acpi firefox feh dunst network-manager-gnome arandr \
+  software-properties-common i3lock libnotify-bin
+  
+else
+  echo "CONTINUING..."
+  echo
+fi
+
+echo
+echo "+++++ Enabling NetworkManager +++++"
+sudo systemctl enable NetworkManager
+echo
 
 echo "========== INSTALLING I3Blocks =========="
 git clone https://github.com/Airblader/i3blocks-gaps i3blocks
