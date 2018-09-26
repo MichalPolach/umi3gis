@@ -21,7 +21,7 @@ read answer
 if [ $answer = 'y' ]; then
   echo
   echo "========== INSTALLING OPTIONAL SOFTWARE =========="
-  sudo apt install -y lxappearance ranger keepass2 xdotool fonts-font-awesome fonts-noto terminator \
+  sudo apt install -y lxappearance ranger keepass2 xdotool fonts-inconsolata fonts-font-awesome fonts-noto terminator \
   imagemagick scrot acpi firefox feh dunst network-manager-gnome arandr software-properties-common \
   i3lock libnotify-bin arc-theme
 else
