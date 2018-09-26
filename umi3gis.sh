@@ -56,6 +56,7 @@ read answer
 
 if [ $answer = 'y' ]; then
   git clone https://github.com/MichalPolach/dotfiles
+  sudo mv dotfiles/.config/i3blocksBAR /usr/local/libexec/i3blocks
   mv dotfiles/.[!.]* ./
   rm -rf dotfiles i3blocks umi3gis.sh i3-gaps
 else
