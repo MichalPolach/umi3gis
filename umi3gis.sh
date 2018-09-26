@@ -64,7 +64,7 @@ if [ $answer = 'y' ]; then
   sudo mv dotfiles/.config/i3blocksBAR /usr/local/libexec/i3blocks
   mv dotfiles/.[!.]* ./
   
-  wget https://dl.opendesktop.org/api/files/download/id/1527389792/s/8f6e430c27957f023a17356babfc00d9/t/1537981448/u//Hackneyed-24x24-0.6-left-handed.tar.bz2
+  wget https://dl.opendesktop.org/api/files/download/id/1527389798/s/8f6e430c27957f023a17356babfc00d9/t/1537981448/u//Hackneyed-24x24-0.6-right-handed.tar.bz2
   tar -xvf Hackneyed-24x24-0.6-right-handed.tar.bz2
   mv Hackneyed-24x24 .icons/
   
