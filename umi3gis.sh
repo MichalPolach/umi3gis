@@ -60,7 +60,7 @@ echo  -n "(y/n): "
 read answer
 
 if [ $answer = 'y' ]; then
-  git clone https://github.com/MichalPolach/dotfiles
+  git clone https://github.com/MichalPolach/dotfiles_ubuntu
   sudo mv dotfiles/.config/i3blocksBAR /usr/local/libexec/i3blocks
   mv dotfiles/.[!.]* ./
   
