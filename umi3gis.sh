@@ -61,14 +61,14 @@ read answer
 
 if [ $answer = 'y' ]; then
   git clone https://github.com/MichalPolach/dotfiles_ubuntu
-  sudo mv dotfiles/.config/i3blocksBAR /usr/local/libexec/i3blocks
-  mv dotfiles/.[!.]* ./
+  sudo mv dotfiles_ubuntu/.config/i3blocksBAR /usr/local/libexec/i3blocks
+  mv dotfiles_ubuntu/.[!.]* ./
   
   wget https://dl.opendesktop.org/api/files/download/id/1527389798/s/8f6e430c27957f023a17356babfc00d9/t/1537981448/u//Hackneyed-24x24-0.6-right-handed.tar.bz2
   tar -xvf Hackneyed-24x24-0.6-right-handed.tar.bz2
   mv Hackneyed-24x24 .icons/
   
-  rm -rf dotfiles i3blocks umi3gis.sh i3-gaps Hackneyed-24x24 Hackneyed-24x24-0.6-right-handed.tar.bz2
+  rm -rf dotfiles_ubuntu i3blocks umi3gis.sh i3-gaps Hackneyed-24x24 Hackneyed-24x24-0.6-right-handed.tar.bz2
 else
   echo "Unacceptable!"
 fi
