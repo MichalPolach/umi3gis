@@ -21,7 +21,7 @@ read answer
 if [ $answer = 'y' ]; then
   echo
   echo "========== INSTALLING OPTIONAL SOFTWARE =========="
-  sudo apt install -y lxappearance ranger keepass2 xdotool fonts-inconsolata fonts-font-awesome fonts-noto terminator \
+  sudo apt install -y lxappearance keepass2 xdotool fonts-inconsolata fonts-font-awesome fonts-noto terminator \
   imagemagick scrot acpi firefox feh dunst network-manager-gnome arandr software-properties-common \
   i3lock libnotify-bin arc-theme udiskie
 else
@@ -63,12 +63,20 @@ if [ $answer = 'y' ]; then
   git clone https://github.com/MichalPolach/dotfiles_ubuntu
   sudo mv dotfiles_ubuntu/.config/i3blocksBAR /usr/local/libexec/i3blocks
   mv dotfiles_ubuntu/.[!.]* ./
+
+# there is a memory leak problem when viewing images in ranger in current version provided in Ubuntu repos. So it needs to be compiled from source.
+  git clone https://github.com/ranger/ranger.git
+  sudo apt install -y python-chardet highlight atool bsdtar unrar poppler-utils \
+  mediainfo odt2txt caca-utils
+  cd ranger
+  sudo make install
+  cd
   
   wget https://dl.opendesktop.org/api/files/download/id/1527389798/s/8f6e430c27957f023a17356babfc00d9/t/1537981448/u//Hackneyed-24x24-0.6-right-handed.tar.bz2
   tar -xvf Hackneyed-24x24-0.6-right-handed.tar.bz2
   mv Hackneyed-24x24 .icons/
   
-  rm -rf dotfiles_ubuntu i3blocks umi3gis.sh i3-gaps Hackneyed-24x24 Hackneyed-24x24-0.6-right-handed.tar.bz2
+  sudo rm -rf ranger dotfiles_ubuntu i3blocks umi3gis.sh i3-gaps Hackneyed-24x24 Hackneyed-24x24-0.6-right-handed.tar.bz2
 else
   echo "Unacceptable!"
 fi
